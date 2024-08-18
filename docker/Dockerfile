@@ -9,11 +9,11 @@ RUN apk add --update --no-cache git \
 
 WORKDIR /insight
 
-# Copy dashcore-node
-RUN git clone --branch master --single-branch --depth 1 https://github.com/dashevo/dashcore-node.git .
+# Copy zipcore-node
+RUN git clone --branch master --single-branch --depth 1 https://github.com/zipeva/zipcore-node.git .
 
 # Copy config file
-COPY dashcore-node.json .
+COPY zipcore-node.json .
 
 # Install NPM modules
 RUN npm ci
@@ -22,8 +22,8 @@ ARG VERSION
 ARG MAJOR_VERSION
 
 # Install Insight modules
-RUN bin/dashcore-node install @dashevo/insight-api@${MAJOR_VERSION}
-RUN bin/dashcore-node install @dashevo/insight-ui@${VERSION}
+RUN bin/zipcore-node install @zipeva/insight-api@${MAJOR_VERSION}
+RUN bin/zipcore-node install @zipeva/insight-ui@${VERSION}
 
 FROM node:20-alpine
 
@@ -37,4 +37,4 @@ COPY --from=0 /insight/ .
 
 EXPOSE 3001
 
-CMD ["bin/dashcore-node", "start"]
+CMD ["bin/zipcore-node", "start"]

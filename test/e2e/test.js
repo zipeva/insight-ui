@@ -150,7 +150,7 @@ describe('basic UI tests', () => {
       expect(height).equal(`${blockIdToSearch} (Mainchain)`);
 
       const blockReward = await blockPage.getBlockReward();
-      expect(blockReward).equal('500 DASH');
+      expect(blockReward).equal('500 ZIP');
 
       const timestamp = await blockPage.getTimestamp();
       expect(timestamp).not.equal('');
@@ -193,7 +193,7 @@ describe('basic UI tests', () => {
       expect(height).equal(`${blockIdToSearch} (Mainchain)`);
 
       const blockReward = await blockPage.getBlockReward();
-      expect(blockReward).equal('500 DASH');
+      expect(blockReward).equal('500 ZIP');
 
       const timestamp = await blockPage.getTimestamp();
       expect(timestamp).not.equal('');
